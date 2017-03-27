@@ -1,7 +1,7 @@
 # functional-programming-principles-in-scala-assignment5
 Programming Assignment: Anagrams
 
-== The problem
+## The problem
 
 An anagram of a word is a rearrangement of its letters such that a word with a different meaning is formed. For example, if we rearrange the letters of the word `Elvis` we can obtain the word `lives`, which is one of its anagrams.
 
@@ -36,7 +36,7 @@ Let's apply this idea to our example, the sentence `You olive`. Lets represent t
 
 Looking into the dictionary we see that `i` corresponds to word `I` in the English language, so we found one meaningful word. We now solve the problem recursively for the rest of the characters `eloouvy` and obtain a list of solutions `List(List(love, you), List(you, love))`. We can combine`I` with that list to obtain sentences `I love you` and `I you love`, which are both valid anagrams.
 
-== Representation
+## Representation
 
 We represent the words of a sentence with the `String` data type:
 
@@ -71,7 +71,7 @@ val dictionary: List[Word] = loadDictionary
 
 The dictionary already exists for this exercise and is loaded for you using the `loadDictionary` utility method.
 
-== Computing Occurrence Lists
+## Computing Occurrence Lists
 
 The `groupBy` method takes a function mapping an element of a collection to a key of some other type, and produces a `Map` of keys and collections of elements which mapped to the same key. This method groups the elements, hence its name.
 
@@ -129,7 +129,7 @@ Next, we implement another version of the method for entire sentences. We can co
 def sentenceOccurrences(s: Sentence): Occurrences
 ```
 
-== Computing Anagrams of a Word
+## Computing Anagrams of a Word
 
 To compute the anagrams of a word, we use the simple observation that all the anagrams of a word have the same occurrence list. To allow efficient lookup of all the words with the same occurrence list, we will have to group the words of the dictionary according to their occurrence lists.
 
@@ -145,7 +145,7 @@ We then implement the method `wordAnagrams` which returns the list of anagrams o
 def wordAnagrams(word: Word): List[Word]
 ```
 
-== Computing Subsets of a Set
+## Computing Subsets of a Set
 
 To compute all the anagrams of a sentence, we will need a helper method which, given an occurrence list, produces all the subsets of that occurrence list.
 
@@ -182,7 +182,7 @@ The order in which you return the subsets does not matter as long as they are al
 
 Hint: investigate how you can use for-comprehensions to implement parts of this method.
 
-== Computing Anagrams of a Sentence
+## Computing Anagrams of a Sentence
 
 We now implement another helper method called `subtract` which, given two occurrence lists `x` and `y`, subtracts the frequencies of the occurrence list `y` from the frequencies of the occurrence list `x`:
 
@@ -220,7 +220,7 @@ Hint: First of all, think about the recursive structure of the problem: what is 
 
 Test the `sentenceAnagrams` method on short sentences, no more than 10 characters. The combinations space gets huge very quickly as your sentence gets longer, so the program may run for a very long time. However for sentences such as `Linux rulez`, `I love you` or `Mickey Mouse` the program should end fairly quickly -- there are not many other ways to say these things.
 
-== Further Improvement (Optional)
+## Further Improvement (Optional)
 
 This part is optional and is not part of an assignment, nor will be graded. You may skip this part freely.
 
